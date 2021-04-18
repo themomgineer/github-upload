@@ -1,0 +1,15 @@
+CACHE MANIFEST
+./styles.css
+./indexeddb.shim.min.js
+./dexie.min.js
+./promise.js
+./application.js
+
+/library/styles.css
+/library/indexeddb.shim.min.js
+/library/dexie.min.js
+/library/promise.js
+/library/application.js
+
+NETWORK:
+*

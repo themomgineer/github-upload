@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--<html manifest="./offline.appcache">-->
+<html lang="en">
+   
+  <head>
+    <link rel='stylesheet' href='styles/styles.css' type='text/css' media='all' />
+    <meta charset="UTF-8">
+    <title>Make a New Deck</title>
+  </head>
+  
+  <body>
+   <h1>Make a New Deck</h1>
+      <form class="form-deck-setup" action="index.html">
+      <!--<form class="form-deck-setup">-->
+         <!--Deck Name-->
+         <label for="name">Deck Name: </label>
+         <input type="text" name="name" id="name" required>
+         <br>
+         
+         <!--Card Template FIXME make this functionality-->
+         <label for="template">Use a template for cards? </label>
+            <select id="template" name="template">
+               <option value="yes">Yes</option>
+               <option value="no">No</option>
+            </select>
+         <br>
+         
+         <!--Template Settings FIXME Make invisible in CSS -->
+         <div class="template">
+            <h3>Side A:</h3>
+            <label for="side-a">Number of text fields: </label>
+            <select id="side-a" name="side-a">
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+            </select>
+            
+            <h3>Side B:</h3>
+            <label for="side-b">Number of text fields: </label>
+            <select id="side-b" name="side-b">
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+            </select>
+         </div>
+         
+      </form>
+      
+      <!--Submit-->
+      <input id="submit" type="button" value="Submit">
+    
+  </body>
+  
+   
+   <!--Include the following on all html files.-->
+   <script src="scripts/dexie-module/indexeddb.shim.min.js"></script>
+   <script src="scripts/dexie-module/dexie.min.js"></script>
+   <script src="scripts/dexie-module/promise.js"></script>
+   <script src="scripts/dexie-setup.js"></script>
+   
+   <!--Script files specific to this page:-->
+   <script src="scripts/new-deck.js"></script>
+  
+</html>

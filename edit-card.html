@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--<html manifest="./offline.appcache">-->
+<html lang="en">
+   
+  <head>
+    <link rel='stylesheet' href='styles/styles.css' type='text/css' media='all' />
+    <meta charset="UTF-8">
+    <title>Edit Card</title>
+  </head>
+  
+  <body>
+      <h1>Edit Card</h1>
+   
+      <form class="form-card" action="edit-deck.html">
+      <!--<form class="form-card">-->
+         
+         <!--Template Settings FIXME Make invisible in CSS -->
+         <div id="side-a">
+            <h2>Side A:</h2>
+            <!--Input field(s) will go here.-->
+         </div>
+         
+         <div id="side-b">
+            <h2>Side B:</h2>
+            <!--Input field(s) will go here.-->
+         </div>
+         
+      </form>
+      
+      <!--Submit-->
+      <input id="submit" type="button" value="Submit">
+      
+      <!--Erase-->
+      <input id="erase" type="button" value="Erase card">
+    
+  </body>
+  
+   
+   <!--Include the following on all html files.-->
+   <script src="scripts/dexie-module/indexeddb.shim.min.js"></script>
+   <script src="scripts/dexie-module/dexie.min.js"></script>
+   <script src="scripts/dexie-module/promise.js"></script>
+   <script src="scripts/dexie-setup.js"></script>
+   
+   <!--Script files specific to this page:-->
+   <script src="scripts/edit-card.js"></script>
+  
+</html>

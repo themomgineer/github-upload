@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html manifest="scripts/dexie-module/offline.appcache">
+   
+  <head>
+    <link rel='stylesheet' href='styles/styles.css' type='text/css' media='all' />
+    <meta charset="UTF-8">
+    <title>Play Deck</title>
+  </head>
+  
+  <body>
+      <h1 id="deck-title"><!-- Deck Title goes here--></h1>
+    
+      <section id="card-content">
+         <!--Card content goes here-->
+      </section>
+      
+      <button id='state-change'><!--Text depends on state--></button>
+    
+      <footer>
+         <button id="deselect">Deselect card.</button>
+         <a href="edit-deck.html">Exit</a>
+         <button id="shuffle"><!--Shuffle/Unshuffle--></button>
+      </footer>
+   </body>
+   
+   <!--Include the following on all html files.-->
+   <script src="scripts/dexie-module/indexeddb.shim.min.js"></script>
+   <script src="scripts/dexie-module/dexie.min.js"></script>
+   <script src="scripts/dexie-module/promise.js"></script>
+   <script src="scripts/dexie-setup.js"></script>
+   
+   <!--Script files specific to this page:-->
+   <script src="scripts/play-deck.js"></script>
+   
+</html>
