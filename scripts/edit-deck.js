@@ -73,7 +73,7 @@ function renderCards() {
 }
 
 
-//When shuffle checkbox is clicked, update the shuffle value for the deck. FIXME
+//When shuffle checkbox is clicked, update the shuffle value for the deck.
 shuffleEl.addEventListener('click', onShuffleClick)
 async function onShuffleClick(e) {
 
