@@ -50,7 +50,7 @@ function displayContent(cardContent) {
 submitBtn.addEventListener('click', updateCard);
 async function updateCard(e) {
    
-   //Get the active deck
+   //Get the active deck FIXME?
    var activeDeckID = await getActiveDeck();
    activeDeckID = activeDeckID.activeDeckID;
    

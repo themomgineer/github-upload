@@ -4,14 +4,14 @@ var db = new Dexie("decks-dexie");
 
 //Define database db scheme:
 db.version(1).stores({
-   
+
    //Each deck will also contain unindexed properties:
    //ifTemplate [true/false]
    //numFieldsSideA
    //numFieldsSideB
    //shuffle [true/false]
    decks: "++id, title",
-   
+
    //The deck is the id of the deck this card is in.
    //The tag is what will be displayed on the webpage as the link
    //to that card. Default will be first input field on side a.
@@ -20,7 +20,7 @@ db.version(1).stores({
    //Each card will also contain the unindexed property:
    //content [[(side A fields)],[(side B fields)]]
    cards: "++id, deck, tag, select",
-   
+
    //In 'active' table, id will be set to 99999. Then I can update this item
    //and make sure that I only have 1 item in the table.
    //(There's probably a better way to do this.)
@@ -34,7 +34,7 @@ db.open()
       //console.log("The db " + db.name + " is open.");
       //checkDexie();
    });
-   
+
 
 //This function makes the storage persistent.
 async function persist() {
@@ -60,16 +60,16 @@ async function showEstimatedQuota() {
     console.error("StorageManager not found");
   }
 }
-   
+
 
 //Use this function to check on the contents of the db.
 function checkDexie() {
    db.decks.each(function(deck) {
       console.log("You have a deck titled: " + deck.title);
-      console.log("id: " + deck.id);
-   //    // console.log("ifTemplate: " + deck.ifTemplate);
-   //    // console.log("numFieldsSideA: " + deck.numFieldsSideA);
-   //    // console.log("numFieldsSideB: " + deck.numFieldsSideB);
+   // console.log("id: " + deck.id);
+   // console.log("ifTemplate: " + deck.ifTemplate);
+   // console.log("numFieldsSideA: " + deck.numFieldsSideA);
+   // console.log("numFieldsSideB: " + deck.numFieldsSideB);
       console.log("Shuffle: " + deck.shuffle);
    //       })
    // .then(function() {
@@ -87,7 +87,7 @@ function checkDexie() {
 
 //Returns the active deck id.
 async function getActiveDeck() {
-   
+
    try {
       var activeDeck = await db.active.get(99999);
       activeDeck = activeDeck.activeDeckID;
@@ -101,7 +101,7 @@ async function getActiveDeck() {
 
 //Returns active deck object
 async function getActiveDeckObj(activeDeck) {
-   
+
    //Print info to console to check.
    try {
       var deckObj = await db.decks.get(Number(activeDeck));
@@ -116,7 +116,7 @@ async function getActiveDeckObj(activeDeck) {
 
 //Returns the active card id.
 async function getActiveCard() {
-   
+
    //Print info to console to check.
    try {
       var active = await db.active.get(99999);
@@ -140,14 +140,14 @@ async function getCard(activeCard) {
 //Reset the active card in the "active" table of db to 'undefined'
 async function resetActiveCard(activeDeck) {
    var activeCard = '';
-   
+
    //Set this deck as the active deck.
-   var key = await db.active.put({ 
+   var key = await db.active.put({
       id: 99999,
       activeDeckID: activeDeck,
       activeCardID: void 0 //sets activeCardID as undefined
    });
-   
+
    //Then print info to console to check.
    //Return active card id.
    //Don't catch because I expect value of undefined.
@@ -161,4 +161,3 @@ async function resetActiveCard(activeDeck) {
    //    console.error ("Oh uh: " + err);
    // }
 }
-      
