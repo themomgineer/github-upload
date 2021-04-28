@@ -71,17 +71,17 @@ function checkDexie() {
    // console.log("numFieldsSideA: " + deck.numFieldsSideA);
    // console.log("numFieldsSideB: " + deck.numFieldsSideB);
       console.log("Shuffle: " + deck.shuffle);
-   //       })
-   // .then(function() {
-      // db.cards.each(function(card) {
-      //       console.log("You have a card tagged: " + card.tag);
-      //       //console.log("Its id is: " + card.id);
-      //       //console.log("Its deck is: " + card.deck);
-      //       console.log("Selected? " + JSON.stringify(card.select));
-      //       console.log("Its content is: " + JSON.stringify(card.content));
-      // });
-      });
-      console.log("Done checking dexie.");
+    })
+
+    db.cards.each(function(card) {
+        console.log("You have a card tagged: " + card.tag);
+        console.log("Its id is: " + card.id);
+        console.log("Its deck is: " + card.deck);
+        //console.log("Selected? " + JSON.stringify(card.select));
+        console.log("Its content is: " + JSON.stringify(card.content));
+    });
+
+    console.log("Done checking dexie.");
 }
 
 

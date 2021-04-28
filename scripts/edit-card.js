@@ -52,7 +52,6 @@ async function updateCard(e) {
 
    //Get the active deck FIXME?
    var activeDeckID = await getActiveDeck();
-   activeDeckID = activeDeckID.activeDeckID;
 
    //Prevent default response of form.
    e.preventDefault();
@@ -79,7 +78,7 @@ async function updateCard(e) {
    //Update card
    db.cards.put({
       id: Number(activeCard),
-      deck: activeDeckID,
+      deck: Number(activeDeckID),
       tag: cardA[0],
       select: true,
       content: card

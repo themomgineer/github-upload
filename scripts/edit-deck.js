@@ -16,6 +16,9 @@ var activeDeckTitle = ''; //initialize
 window.addEventListener('load', onLoad);
 async function onLoad(e) {
 
+    //debugging
+    checkDexie();
+
    //Get the active deck and print to console
    activeDeckID = await getActiveDeck();
    console.log("Active deck is " + activeDeckID);
