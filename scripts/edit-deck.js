@@ -7,6 +7,7 @@ var deselectBtn = document.getElementById("deselect-all");
 var deckTitleEl = document.getElementById("deck-title");
 var selectEl = document.getElementById("select");
 var shuffleEl = document.getElementById("shuffle");
+var repeatEl = document.getElementById("repeat");
 var ulCards = document.getElementById("cards-list");
 var cardBtns = document.getElementsByClassName("edit-button"); //Live array
 var activeDeckID = 0; //initialize
@@ -33,6 +34,11 @@ async function onLoad(e) {
    //Display the correct value for the shuffle checkbox.
    if(activeDeckObj.shuffle === true) {
       shuffleEl.checked = true;
+   }
+
+   //Display the correct value for the repeat checkbox.
+   if(activeDeckObj.repeat === true) {
+      repeatEl.checked = true;
    }
 
    //Also, reset the active card.
@@ -89,6 +95,23 @@ async function onShuffleClick(e) {
    else {
       console.log("Checkbox was unchecked.");
       ifSuccess = await db.decks.update(parseInt(activeDeckID, 10), {shuffle: false});
+   }
+}
+
+
+//When repeat checkbox is clicked, update the repeat value for the deck.
+repeatEl.addEventListener('click', onRepeatClick)
+async function onRepeatClick(e) {
+
+   //Checkbox was checked, so set shuffle to true in db
+   var ifSuccess;
+   if(repeatEl.checked) {
+      ifSuccess = await db.decks.update(parseInt(activeDeckID, 10), {repeat: true});
+   }
+   //Checkbox was unchecked, so set shuffle to false in db
+   else {
+      console.log("Checkbox was unchecked.");
+      ifSuccess = await db.decks.update(parseInt(activeDeckID, 10), {repeat: false});
    }
 }
 

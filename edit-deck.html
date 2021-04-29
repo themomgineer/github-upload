@@ -1,52 +1,53 @@
 <!DOCTYPE html>
-   
+
   <head>
     <link rel='stylesheet' href='styles/styles.css' type='text/css' media='all' />
     <meta charset="UTF-8">
     <title>Peronal Flash Card Decks</title>
   </head>
-  
+
   <body>
-      
+
       <h1 id="deck-title"><!--Deck title will go here (script).--></h1>
-      
+
       <a href="index.html">Home</a>
-      
+
       <br>
-      
+
       <input id="new-card" type="button" value="Make a new card">
       <input id="play" type="button" value="Play deck">
       <input id="erase" type="button" value="Erase deck">
       <input id="select-all" type="button" value="Select all">
       <input id="deselect-all" type="button" value="Deselect all">
-    
+
       <section id="cards">
          <label id="select"><!--Label "Select:" will go here if there are cards.--></label>
          <ul id="cards-list">
             <!--Cards will go here (script).-->
          </ul>
       </section>
-      
+
       <br>
-      
+
       <section id="settings">
-         <input type="checkbox" name="shuffle" value="shuffle" id="shuffle">Shuffle: <br>
+         <input type="checkbox" name="shuffle" value="shuffle" id="shuffle">Shuffle? <br>
+         <input type="checkbox" name="repeat" value="repeat" id="repeat">Continuous Play? <br>
       </section>
-      
+
       <br>
-      
+
       <footer>
 
       </footer>
    </body>
-   
+
    <!--Include the following on all html files.-->
    <script src="scripts/dexie-module/indexeddb.shim.min.js"></script>
    <script src="scripts/dexie-module/dexie.min.js"></script>
    <script src="scripts/dexie-module/promise.js"></script>
    <script src="scripts/dexie-setup.js"></script>
-   
+
    <!--Script files specific to this page:-->
    <script src="scripts/edit-deck.js"></script>
-   
+
 </html>

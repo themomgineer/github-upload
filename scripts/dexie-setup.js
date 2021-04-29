@@ -10,6 +10,7 @@ db.version(1).stores({
    //numFieldsSideA
    //numFieldsSideB
    //shuffle [true/false]
+   //repeat [true/false]
    decks: "++id, title",
 
    //The deck is the id of the deck this card is in.
